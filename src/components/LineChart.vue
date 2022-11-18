@@ -1,6 +1,9 @@
 <template>
   <div>
-    <canvas id="myChartLine"></canvas>
+    <!-- ref - DOM 선택방법 -->
+    <!-- ref를 써야 하는 이유: getElementById는 겹칠 확률이 있어서, 
+    컴포넌트 ref를 써야 충돌이 안남 -->
+    <canvas ref="lineChart" id="myChartLine"></canvas>
   </div>
 </template>
 
@@ -9,8 +12,8 @@ import Chart from 'chart.js/auto';
 
 export default {
   mounted() {
-    //document.getElementById - 화면이 마운트 됐을때 써야 오류가 안생김
-    const ctx = document.getElementById('myChartLine').getContext('2d');
+    //화면이 마운트 됐을때 써야 오류가 안생김
+    const ctx = this.$refs.lineChart.getContext('2d');
     // eslint-disable-next-line
     const myChart = new Chart(ctx, {
       type: 'line',
