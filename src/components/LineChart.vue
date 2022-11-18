@@ -8,14 +8,12 @@
 </template>
 
 <script>
-import Chart from 'chart.js/auto';
-
 export default {
   mounted() {
     //화면이 마운트 됐을때 써야 오류가 안생김
     const ctx = this.$refs.lineChart.getContext('2d');
     // eslint-disable-next-line
-    const myChart = new Chart(ctx, {
+    const myChart = new this.$_Chart(ctx, {
       type: 'line',
       data: {
         labels: [

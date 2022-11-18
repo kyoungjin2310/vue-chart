@@ -3,14 +3,12 @@
 </template>
 
 <script>
-import Chart from 'chart.js/auto';
-
 export default {
   mounted() {
     //document.getElementById - 화면이 마운트 됐을때 써야 오류가 안생김
     const ctx = document.getElementById('myChart');
     // eslint-disable-next-line
-    const myChart = new Chart(ctx, {
+    const myChart = new this.$_Chart(ctx, {
       type: 'bar',
       data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
